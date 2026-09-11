@@ -3,9 +3,11 @@ import Todo from "./components/Todo.jsx";
 import Title from "./components/Title.jsx";
 import Modal from "./components/Modal.jsx";
 import React, {useState } from 'react';
+import Counter from "./components/Counter.jsx";
 
 function App() {
-  const [showModal, setShowModal] = useState(false)
+    return <Counter />
+    const [showModal, setShowModal] = useState(false)
 
   return (
     <div>
