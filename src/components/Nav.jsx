@@ -1,29 +1,14 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
-const Nav = () => {
+function Nav () {
     return (
         <nav>
-            <div className="nav__container">
-                <a href="/">
-                <img src="" alt="" className="logo" />
-                </a>
-                <ul className="nav__links">
-                    <li className="nav__list">
-                        <a href="/" className="nav__link">
-                            Home
-                        </a>
-                    </li> 
-                    <li className="nav__list">
-                        <a href="/" className="nav__link">
-                            Books
-                        </a>
-                    </li> 
-                    <button className="btn__menu">
-                        <FontAwesomeIcon icon="bars" />
-                    </button>
-                </ul>
-            </div>
-        </nav>
+            <Link to="/">Home</Link>
+            <Link to="/users/ronaldo">Ronaldo</Link>
+            <Link to="/users/messi">Messi</Link>
+            <Link to="/users/br4gg">David Bragg</Link>
+        </nav> 
     )
 }
+
+export default Nav

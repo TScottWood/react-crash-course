@@ -1,51 +1,20 @@
 import "./App.css";
-import Todo from "./components/Todo.jsx";
-import Title from "./components/Title.jsx";
-import Modal from "./components/Modal.jsx";
-import React, { useState } from "react";
-import Counter from "./components/Counter.jsx";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Nav from "./components/Nav";
+import Users from "./pages/Users";
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
-
-  function onTodoDelete() {
-    setShowModal(true);
-    console.log("onTodoDelete()");
-  }
-
-  function cancelModal() {
-    setShowModal(false);
-  }
-
-  function confirmModal() {
-    setShowModal(false);
-  }
-
   return (
-    <div>
-      <Title />
-      <div>
-        <input
-          type="text"
-          onChange={(event) => {
-            console.log(event.target.value);
-          }}
-        />
-        <button onClick={() => setShowModal(true)}>Add todo</button>
-      </div>
-      <div className="todo__wrapper">
-        <Todo onTodoDelete={onTodoDelete} title="Finish Frontend Simplified" />
-        <Todo onTodoDelete={onTodoDelete} title="Finish interview Section" />
-        <Todo onTodoDelete={onTodoDelete} title="Land a $100k Job" />
-      </div>
-      {showModal && (
-        <Modal
-          text="Confirm Delete?"
-          cancelModal={cancelModal}
-          confirmModal={confirmModal}
-        />
-      )}
-    </div>
+    <Router>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/users/:username" element={<Users />} />
+      </Routes>
+    </Router>
   );
 }
 
